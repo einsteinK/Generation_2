@@ -1,10 +1,9 @@
 Generation_2
 =
-Titan Generation 2 Development. Titan Generation 2 is a big project that is written in RBX.Lua. I plan to make something like it in every major language(i.e. Java,Lua,CPP) I get at least 3/4ths to get finished in. RBX.Lua is the first generation of this.
-
+Titan Generation 2 Development. Titan Generation 2 is a big project that is written in RBX.Lua. I plan to make something for it in every major language(i.e. Java,Lua,CPP) I get at least 3/4ths to get finished in.
 Note to Main Developers
 =
-Do not, under any circumstances, put the main script on Github. 12packkid was easily able to guess Nebula's site, and I bet you he could do the same here. Also, when I finish the script loader, you must always use the loader. If at oxcool1's Public SB, use the HTTP loader, otherwise use the module loader. Do not let anyone else even have a peek at the script, especially scary people like tusKOr661. When testing the script, make sure to not let certain details about it get out. Last, if you see any FMer that isn't a friend of yours, KILL IT.
+Do not, under any circumstances, put the main script on Github, or sell the script. 12packkid was easily able to guess Nebula's site, and I bet you he could do the same here. Also, when I finish the script loader, you must always use the loader. If at oxcool1's Public SB, use the HTTP loader, otherwise use the module loader. Do not let anyone else even have a peek at the script, especially scary people like tusKOr661. When testing the script, make sure to not let certain details about it get out. Last, if you see any FMer that isn't a friend of yours, KILL IT.
 
 Main Developer List
 =
