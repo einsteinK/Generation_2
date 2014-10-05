@@ -1,5 +1,5 @@
 --[[Update Logs]]--
-Shared.["Titan_Update_Logs"]={
+shared.Titan_Update_Logs={
       {Update = "Creation of Update Logs", Time = "12:35am", TimeZone = "GMT", Date = "05/10/2014", Person = "Pkamara", Lines=nil};
       {Update = "Added small security features", Time = "12:59am", TimeZone="GMT", Date = "05/10/2014", Person = "Pkamara", Lines = "44-53"};
 }
