@@ -1,5 +1,6 @@
 --[[Update Logs]]--
 shared.Titan_Update_Logs={
-      {Update = "Creation of Update Logs", Time = "12:35am", TimeZone = "GMT", Date = "05/10/2014", Person = "Pkamara", Lines=nil};
-      {Update = "Added small security features", Time = "12:59am", TimeZone="GMT", Date = "05/10/2014", Person = "Pkamara", Lines = "44-53"};
+      {Update = "Creation of Update Logs", Time = "12:35am", TimeZone = "GMT", Date = "10/5/2014", Person = "Pkamara", Lines=nil};
+      {Update = "Added small security features", Time = "12:59am", TimeZone="GMT", Date = "10/5/2014", Person = "Pkamara", Lines = "44-53"};
+      {Update='Continued working on GUIs, link for example: http://prntscr.com/4trflj',Time='5:25pm',TimeZome='PST',Data='10/6/2014',Person='Diitto',Lines=nil};
 }
