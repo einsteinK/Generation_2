@@ -19,5 +19,5 @@ Developer Pkamara is currently holding the site on a PHP database, where the scr
 
 Side Notes
 =
-("Side Note"):match('%w-%s(%w+)')
+("Side Notes"):match('%w-%s(%w+)')
 Notes. Before we start seriously working on Generation 2, we need to gather as much notes as we can, and compile it into one place. From there, we can advance on making G2 one of the most powerful and efficient admins around. The game plan here is to release a severely sandboxed and restricted version of Titan, but with a large datastore and something like that admin script that had individual servers and could control the servers, except it will be in many games, giving us permenant admin and a lot of power in ROBLOX.
