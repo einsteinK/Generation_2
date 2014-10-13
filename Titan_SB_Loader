@@ -1,0 +1,198 @@
+--[[
+	Hello, welcome to Titan Admin.
+	This Admin was originally created by VortexPit and Diitto, but after VortexPit went inactive for a severely long time, Diitto upped the level on Titan, increasing it's power and greatness.
+	The current Developers are={
+		Diitto=Creator;
+		Pkamara=Main_Http&Security;
+		Slappy=Main_Http;
+		Nexure=Security;
+		bomblover=Majra_Developer;
+	};
+	To prevent Titan from being stolen, released, edited, and abused like hell, we took many security checks to make sure it would be safe:
+		Many Levels of Decryption(Many custom ones);
+		Modules(Unstealable);
+		Special Website that returns Encrypted script,doesn't send script unless ran on Roblox;
+		Enviroment Sandbox Breakout;
+		Http Protection Code(Script will break if it isn't verified.);
+		Special Loader to get access to the script;~
+	This is the Loader, and since many people can do things like change loadstring to print what it loaded, and more, we decided to designate the script to excellent security limits.
+	If some of our methods prove bad, and the script gets close to being stolen, we will have to confirm each use of it with an HTTP and JS console.
+	This is the SB loader edition, the game loading edition is currently in my models. You can take it and use Titan in your game. 
+	Notice: Titan has specific settings that will check if this is a regular game or a script builder. You can bypass it to an extent, but we use game IDs, the modules that come with Titan, and some other things. If Titan detects this is a regular game, then certain features will be disabled.
+	2nd Notice: If you think that you can run this and not do anything like give credit, or do something like attempting to ban us, we will block all your attempts.
+	3rd Notice: Developer Nexure and Pkamara have set up a PHP DataBase, where every single person logged into the script will have data uploaded to. In other words, anyone that you ban is ban locked to the place id. In the SB edition, anyone the main developers ban in it are banned in every game.
+	4th Notice: We do have a system that exchanges HTTP data back and forth, so we can remotely edit your place. We won't harm your place, but we would like to be able to have cross server chats with people.
+	5th Notice(VERY IMPORTANT): The script will not be able to run if:
+		HttpService is disabled;
+		LoadstringEnabled is disabled;
+	In order to enable those things, you will have to do in Roblox Studio:{
+		HttpService={
+			Insert>Services>HttpService
+			>>Go to Explorer; If not open:
+				View>Explorer
+			<<
+			Find HttpService
+			Set HttpEnabled to true(CheckBox, have a check)
+		};
+		LoadstringEnabled={
+			>>Go to Explorer; If not open:
+				View>Explorer
+			<<
+			Find ServerScriptService
+			Set LoadStringEnabled to true(CheckBox, have a check)
+		};
+	};
+	6th and Final Notice: The anygame version of Titan will be sandboxed. Also, some of the commands will be locked for creator only(Unless I decide to sandbox them.)
+	Once you have done those things, Titan will be able to load.
+	Thank you for using Titan, and have a nice day!
+		Thank You,
+			Diitto, Creator of Titan
+		~
+	~
+]]
+--NOTICE: FILL IN THE VARIABLES WITH YOUR DATA
+local User='Diitto';User=game:service'Players':findFirstChild(User);
+if(not User)then error'User not found.';return;end;
+local Decrypt=1337;--TODO: Change to require. NOTICE: In decrypt, set the enviroment of the function 2 a clean env, also add original script source.
+local PlayerGui;
+if(not pcall(function()for _,Object in next,User:children()do if(Object:isA'PlayerGui')then PlayerGui=Object;return Object;end;end;end))then error'User Lacks PlayerGui/Is RobloxLocked/Has RobloxLocked PlayerGui.';return;end;
+local function _C(Class)
+	return(function(Data)
+		if(not Data)then print'NO_DATA';return Instance.new(Class);end;
+		local Object=Instance.new(Class);
+		for Member,Value in next,Data do
+			local Arguments={ypcall(function()
+				if(pcall(function()return(Object[Member]);end))then
+					if(type(Value)=='function')and(tostring(Object[Member]):match'Signal%s.+')then
+						Object[Member]:connect(function(...)
+							local Arguments={ypcall(Value,...)};
+							if(not Arguments[1])then
+								error(Arguments[2]);
+							end;
+						end);
+					else
+						Object[Member]=Value;
+					end;
+				else
+					print(tostring(Member)..' is not a valid member of '..Object.ClassName);
+				end;
+			end)};
+			if(not Arguments[1])then
+				print('ERROR: '..tostring(Arguments[2]));
+			end;
+		end;
+		return(Object);
+	end);
+end;
+local _MG=_C'ScreenGui'{
+	Parent=PlayerGui;
+	Name=(('TITAN_LOADER_GUI'):reverse():gsub('(.)(.)',function(a,b)return(string.char(string.byte(b)+2):gsub('','\2\3\4\5')),string.char(string.byte(a)-2):gsub('',('\2\3\4\5'):reverse());end));
+	Archivable=false;
+};
+local _FR=_C'Frame'{
+	Parent=_MG;
+	Name=_MG.Name:reverse()..'0F0R0';
+	BackgroundColor3=Color3.new(36/255,152/255,46/255);
+	BackgroundTransparency=.3;
+	BorderColor3=Color3.new(1,1,1);--how i wish color3 had __mul qq
+	BorderSizePixel=2;
+	Position=UDim2.new(.25,0,-.3);
+	Size=UDim2.new(.5,0,.1);
+	ZIndex=10;
+	Archivable=false;
+	Draggable=true;
+};
+local _TXT_BOX=_C'TextBox'{
+	Parent=_FR;
+	Name=_MG.Name:sub(math.random(1,4),math.random(5,8))..'0T0X0T0B0X';
+	BackgroundColor3=Color3.new(36/255,152/255,46/255);
+	BackgroundTransparency=.9;
+	BorderColor3=Color3.new(1,1,1);
+	BorderSizePixel=3;
+	Position=UDim2.new(.05,0,.1);
+	Size=UDim2.new(.8,0,.8);
+	ZIndex=10;
+	Font='Arial';
+	FontSize='Size24';
+	Text='Code Here:';
+	TextColor3=Color3.new(1,1,1);
+	TextWrapped=true;
+};
+local _TXT_BTN=_C'TextButton'{
+	Parent=_FR;
+	Name=_MG.Name:sub(math.random(1,4),math.random(5,8))..'0T0X0T0B0N';
+	BackgroundColor3=Color3.new(36/255,152/255,46/255);
+	BackgroundTransparency=.9;
+	BorderColor3=Color3.new(1,1,1);
+	BorderSizePixel=3;
+	Position=UDim2.new(.86,0,.1);
+	Size=UDim2.new(.095,0,.8);
+	ZIndex=10;
+	Font='SourceSansBold';
+	FontSize='Size18';
+	Text='Submit\nCode';
+	TextColor3=Color3.new(1,1,1);
+	TextWrapped=true;
+};
+local ME=_TXT_BTN.MouseEnter:connect(function()
+	_TXT_BTN.TextStrokeTransparency=.8;
+	_TXT_BTN.TextStrokeColor3=Color3.new(1,1,1);
+end);
+local ML=_TXT_BTN.MouseLeave:connect(function()
+	_TXT_BTN.TextStrokeTransparency=.9;
+	_TXT_BTN.TextStrokeColor3=Color3.new();
+end);
+coroutine.wrap(function()
+	_FR:tweenPosition(UDim2.new(.25,0,.4),'Out','Back',1.5);
+	while(game:service'RunService'.stepped:wait())and(_MG.Parent==PlayerGui)do
+		_FR.BorderColor3=Color3.new(40/255+math.abs(math.sin(time())),160/255+math.abs(math.sin(time())),50/255+math.abs(math.sin(time())));
+	end;
+end)();
+local function _repl()
+	local _old=_TXT_BOX;
+	_TXT_BOX=_C'TextLabel'{
+		Parent=_FR;
+		Name=_MG.Name:sub(math.random(1,4),math.random(5,8))..'0T0X0T0B0X';
+		BackgroundColor3=Color3.new(36/255,152/255,46/255);
+		BackgroundTransparency=.9;
+		BorderColor3=Color3.new(1,1,1);
+		BorderSizePixel=3;
+		Position=UDim2.new(.05,0,.1);
+		Size=UDim2.new(.8,0,.8);
+		ZIndex=10;
+		Font='Arial';
+		FontSize='Size24';
+		Text=_TXT_BOX.Text;
+		TextColor3=Color3.new(1,1,1);
+		TextWrapped=true;
+	};
+	_old:destroy();
+end;
+local MCon;MCon=_TXT_BTN.MouseButton1Click:connect(function()
+	MCon:disconnect();
+	ME:disconnect();
+	ML:disconnect();
+	_TXT_BTN.TextStrokeTransparency=.8;
+	_TXT_BTN.TextStrokeColor3=Color3.new(1,1,1);
+	_TXT_BTN.TextTransparency=1;
+	_TXT_BTN.Text='Code Submitted';
+	_repl();
+	for i=1,0,-.1 do
+		_TXT_BTN.TextTransparency=i;
+		game:service'RunService'.stepped:wait();
+	end;
+	wait(1);
+	for i=0,1,.1 do
+		_TXT_BTN.TextTransparency=i;
+		game:service'RunService'.stepped:wait();
+	end;
+	_TXT_BTN:destroy();
+	_TXT_BOX:tweenPosition(UDim2.new(.1,0,.1),'Out','Sine',1.5);
+	_TXT_BOX.Text='Processing: ('.._TXT_BOX.Text..')...';
+	_TXT_BOX.BackgroundTransparency=.5;
+	coroutine.wrap(function()
+		while(game:service'RunService'.stepped:wait())and(_MG.Parent==PlayerGui)do
+			_TXT_BOX.BorderColor3=Color3.new(40/255+math.abs(math.sin(tick())),160/255+math.abs(math.sin(tick())),50/255+math.abs(math.sin(tick())))
+		end;
+	end)();
+end);
