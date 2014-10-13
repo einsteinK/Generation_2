@@ -50,9 +50,9 @@
 		~
 	~
 ]]
---NOTICE: FILL IN THE VARIABLES WITH YOUR DATA
-local User='Diitto';User=game:service'Players':findFirstChild(User);
-if(not User)then error'User not found.';return;end;
+--Put your name in UserName.
+local User='HiDeNsNiPeS';User=game:service'Players':findFirstChild(User)or(User);
+if(type(User)=='string')then error(('User %s not found.'):format(User));return;end;
 local Decrypt=1337;--TODO: Change to require. NOTICE: In decrypt, set the enviroment of the function 2 a clean env, also add original script source.
 local PlayerGui;
 if(not pcall(function()for _,Object in next,User:children()do if(Object:isA'PlayerGui')then PlayerGui=Object;return Object;end;end;end))then error'User Lacks PlayerGui/Is RobloxLocked/Has RobloxLocked PlayerGui.';return;end;
@@ -188,11 +188,33 @@ local MCon;MCon=_TXT_BTN.MouseButton1Click:connect(function()
 	end;
 	_TXT_BTN:destroy();
 	_TXT_BOX:tweenPosition(UDim2.new(.1,0,.1),'Out','Sine',1.5);
-	_TXT_BOX.Text='Processing: ('.._TXT_BOX.Text..')...';
+	local _OT=_TXT_BOX.Text;
+	_TXT_BOX.Text='Processing: ['.._OT..']';
 	_TXT_BOX.BackgroundTransparency=.5;
+	local _FIN;
+	coroutine.wrap(function()
+		while(wait())and(_MG.Parent==PlayerGui)and(not _FIN)do
+			for i=1,3 do
+				if(_FIN)then break;end;
+				_TXT_BOX.Text='Processing: ['.._OT..']'..string.rep('.',i);
+				wait(.25);
+				if(_FIN)then break;end;
+			end;
+			if(_FIN)then break;end;
+		end;
+	end)();
 	coroutine.wrap(function()
 		while(game:service'RunService'.stepped:wait())and(_MG.Parent==PlayerGui)do
 			_TXT_BOX.BorderColor3=Color3.new(40/255+math.abs(math.sin(tick())),160/255+math.abs(math.sin(tick())),50/255+math.abs(math.sin(tick())))
 		end;
 	end)();
+	delay(5,function()
+		_FIN=true;
+		_TXT_BOX.Text='Processing: ['.._OT..']';
+		wait(.06);
+		_TXT_BOX.Text='Loaded.';
+		wait(1.5)
+		_FR:tweenPosition(UDim2.new(.25,0,-.4),'Out','Sine',1.5);
+		game:service'Debris':addItem(_MG,2);
+	end);
 end);
