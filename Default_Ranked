@@ -7,6 +7,19 @@
 		"Rank":6,
 		"Desc":"Creator"
 	],
+	"Nexure":[
+		"Rank":6,
+		"Desc":"Creator"
+	],
+	"bomblover":[
+		"Rank":6,
+		"Desc":"Creator"
+	],
+	"Pkamara":[
+		"Rank":6,
+		"Desc":"Creator"
+	],
+
 	"Pragol":[
 		"Rank":-2,
 		"Desc":"Banned"
@@ -19,7 +32,11 @@
 		"Rank":-2,
 		"Desc":"Banned"
 	],
-	"zbot;dotlun":[
+	"zbot":[
+		"Rank":-2,
+		"Desc":"Banned"
+	],
+	"dotlun":
 		"Rank":-2,
 		"Desc":"Banned"
 	],
@@ -301,10 +318,14 @@
 	],
 	"oxloser1":[
 		"Rank":-2,
-		"Desc":"Banned"
+		"Desc":"Really stupid."
 	],
 	"Fadedadminpwn1st":[
 		"Rank":-2,
-		"Desc":"Banned"
-	];
+		"Desc":"Stupid as fk."
+	],
+	"Scriptree":[
+		"Rank":-2,
+		"Desc":"Admin Abusers are just silly stupid."
+	],
 }
