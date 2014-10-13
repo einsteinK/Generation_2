@@ -1,331 +1,310 @@
 {
-	"Diitto":[
+	"Diitto":{
 		"Rank":6,
 		"Desc":"Creator"
-	],
-	"Slappy826":[
+	},
+	"Slappy826":{
 		"Rank":6,
 		"Desc":"Creator"
-	],
-	"Nexure":[
-		"Rank":6,
-		"Desc":"Creator"
-	],
-	"bomblover":[
-		"Rank":6,
-		"Desc":"Creator"
-	],
-	"Pkamara":[
-		"Rank":6,
-		"Desc":"Creator"
-	],
-
-	"Pragol":[
+	},
+	"Pragol":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"Warui":[
+	},
+	"Warui":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"RobloxBlockz":[
+	},
+	"RobloxBlockz":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"zbot":[
+	},
+	"zbot;dotlun":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"dotlun":
+	},
+	"qclawl":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"qclawl":[
+	},
+	"qclau":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"qclau":[
+	},
+	"reizayahl":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"reizayahl":[
+	},
+	"skipper2454":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"skipper2454":[
+	},
+	"KevinPowers":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"KevinPowers":[
+	},
+	"ednas02YOUTUBE":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"ednas02YOUTUBE":[
+	},
+	"monofthebase44":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"monofthebase44":[
+	},
+	"derpclaw":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"derpclaw":[
+	},
+	"MyDudeAedin":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"MyDudeAedin":[
+	},
+	"hugerichman":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"hugerichman":[
+	},
+	"Blitzerz":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"Blitzerz":[
+	},
+	"Male":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"Male":[
+	},
+	"Slurparen":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"Slurparen":[
+	},
+	"DangCool25":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"DangCool25":[
+	},
+	"WhyYouSlapMyHamBurge":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"WhyYouSlapMyHamBurge":[
+	},
+	"Vysk":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"Vysk":[
+	},
+	"dovydas20":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"dovydas20":[
+	},
+	"IValerian":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"IValerian":[
+	},
+	"dragondark33":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"dragondark33":[
+	},
+	"merilethefox9":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"merilethefox9":[
+	},
+	"Zakuse":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"Zakuse":[
+	},
+	"MatthewHappy02":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"MatthewHappy02":[
+	},
+	"DIMKA2012":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"DIMKA2012":[
+	},
+	"loopeydad6678":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"loopeydad6678":[
+	},
+	"Paramedlc":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"Paramedlc":[
+	},
+	"LyricSuperSonic99":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"LyricSuperSonic99":[
+	},
+	"iLoveAndroid":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"iLoveAndroid":[
+	},
+	"TitaniumBottle":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"TitaniumBottle":[
+	},
+	"ShadyShock":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"ShadyShock":[
+	},
+	"earthlink22":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"earthlink22":[
+	},
+	"mummy230":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"mummy230":[
+	},
+	"GenocideTheoryXI":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"GenocideTheoryXI":[
+	},
+	"Trolbowdash":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"Trolbowdash":[
+	},
+	"Waimjkl":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"Waimjkl":[
+	},
+	"ruffruffboboalt":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"ruffruffboboalt":[
+	},
+	"NationalNilCenter":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"NationalNilCenter":[
+	},
+	"UnexpectedWorkspace":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"UnexpectedWorkspace":[
-		"Rank":-2,
-		"Desc":"Banned"
-	],
-	"ROBLOX":[
+	},
+	"ROBLOX":{
 		"Rank":-2,
 		"Desc":"Worst crap ever."
-	],
-	"builderman":[
+	},
+	"builderman":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"masterblade456":[
+	},
+	"masterblade456":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"tyty109":[
+	},
+	"tyty109":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"SpookedVille":[
+	},
+	"SpookedVille":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"WhyYouEatMyGoldFish":[
+	},
+	"WhyYouEatMyGoldFish":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"IXMadaraUchihaXI":[
+	},
+	"IXMadaraUchihaXI":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"kingqueen3344":[
+	},
+	"kingqueen3344":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"base16Coder":[
+	},
+	"base16Coder":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"CLarramore":[
+	},
+	"CLarramore":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"dontgetinmyway2":[
+	},
+	"dontgetinmyway2":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"jeffery12226":[
+	},
+	"jeffery12226":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"xXxsmiley12xXx":[
+	},
+	"xXxsmiley12xXx":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"Warui":[
+	},
+	"Warui":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"jordan83221":[
+	},
+	"jordan83221":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"boomexpose":[
+	},
+	"boomexpose":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"GenocideTheory":[
+	},
+	"GenocideTheory":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"xxxxhlp":[
+	},
+	"xxxxhlp":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"chucky4532":[
+	},
+	"chucky4532":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"gabriel101":[
+	},
+	"gabriel101":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"spiiderman2014":[
+	},
+	"spiiderman2014":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"medaljustice98":[
+	},
+	"medaljustice98":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"sohottt":[
+	},
+	"sohottt":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"Sarahmal":[
+	},
+	"Sarahmal":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"hrocks1":[
+	},
+	"hrocks1":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"roblox2447":[
+	},
+	"roblox2447":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"BlueThunder25":[
+	},
+	"BlueThunder25":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"shadowlegend1051":[
+	},
+	"shadowlegend1051":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"GrillRunt":[
+	},
+	"GrillRunt":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"deep12345qe":[
+	},
+	"deep12345qe":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"prisn":[
+	},
+	"prisn":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"bigbadvulture":[
+	},
+	"bigbadvulture":{
 		"Rank":-2,
 		"Desc":"Banned"
-	],
-	"oxloser1":[
+	},
+	"oxloser1":{
 		"Rank":-2,
-		"Desc":"Really stupid."
-	],
-	"Fadedadminpwn1st":[
+		"Desc":"Banned"
+	},
+	"Fadedadminpwn1st":{
 		"Rank":-2,
-		"Desc":"Stupid as fk."
-	],
-	"Scriptree":[
-		"Rank":-2,
-		"Desc":"Admin Abusers are just silly stupid."
-	],
+		"Desc":"Banned"
+	};
 }
