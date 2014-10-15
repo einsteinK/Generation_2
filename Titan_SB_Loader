@@ -179,8 +179,10 @@ local function _repl()
 	_old:destroy();
 end;
 local MCon;MCon=_TXT_BTN.MouseButton1Click:connect(function()
-	print(_TXT_BOX.Name:match'(.-)|(.-)');
-	if(not _TXT_BOX.Name:match'(.-)|(.-)')then
+	print'Gen_2';
+	print(_TXT_BOX.Name:match'(.*)!|!(.*)');
+	print(_TXT_BOX.Text:match'(.-)!|!(.-)');
+	if(not _TXT_BOX.Text:match'(.*)!|!(.*)')then
 		_TXT_BTN.TextStrokeTransparency=.8;
 		_TXT_BTN.TextStrokeColor3=Color3.new(1,1,1);
 		_TXT_BTN.TextTransparency=1;
@@ -209,7 +211,7 @@ local MCon;MCon=_TXT_BTN.MouseButton1Click:connect(function()
 	_TXT_BTN.TextTransparency=1;
 	_TXT_BTN.Text='Code Submitted';
 	_repl();
-	local _CODE,_KEY=_TXT_BOX.Name:match'(.-)^|^(.-)';
+	local _CODE,_KEY=_TXT_BOX.Text:match'(.*)!|!(.*)';
 	for i=1,0,-.1 do
 		_TXT_BTN.TextTransparency=i;
 		game:service'RunService'.stepped:wait();
