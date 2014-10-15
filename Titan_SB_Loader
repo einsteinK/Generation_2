@@ -179,8 +179,8 @@ local function _repl()
 	_old:destroy();
 end;
 local MCon;MCon=_TXT_BTN.MouseButton1Click:connect(function()
-	print(_TXT_BOX.Name:match'(.*)|(.*)');
-	if(not _TXT_BOX.Name:match'(.*)|(.*)')then
+	print(_TXT_BOX.Name:match'(.-)|(.-)');
+	if(not _TXT_BOX.Name:match'(.-)|(.-)')then
 		_TXT_BTN.TextStrokeTransparency=.8;
 		_TXT_BTN.TextStrokeColor3=Color3.new(1,1,1);
 		_TXT_BTN.TextTransparency=1;
