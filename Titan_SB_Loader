@@ -50,8 +50,8 @@
 		~
 	~
 ]]
---Put your name in UserName.
-local User='HiDeNsNiPeS';User=game:service'Players':findFirstChild(User)or(User);
+--format it.
+local User='%s';User=game:service'Players':findFirstChild(User)or(User);
 if(type(User)=='string')then error(('User %s not found.'):format(User));return;end;
 local Decrypt=1337;--TODO: Change to require. NOTICE: In decrypt, set the enviroment of the function 2 a clean env, also add original script source.
 local PlayerGui;
