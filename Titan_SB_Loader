@@ -64,7 +64,7 @@ local function _C(Class)
 		for Member,Value in next,Data do
 			local Arguments={ypcall(function()
 				if(pcall(function()return(Object[Member]);end))then
-					if(type(Value)=='function')and(tostring(Object[Member]):match'Signal%s.+')then
+					if(type(Value)=='function')and(tostring(Object[Member]):match'Signal .+')then
 						Object[Member]:connect(function(...)
 							local Arguments={ypcall(Value,...)};
 							if(not Arguments[1])then
