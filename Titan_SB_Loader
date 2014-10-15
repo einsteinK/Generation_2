@@ -154,7 +154,6 @@ local function _repl()
 		Position=UDim2.new(.05,0,.1);
 		Size=UDim2.new(.8,0,.8);
 		ZIndex=10;
-		ClearTextOnFocus=false;
 		Font='Arial';
 		FontSize='Size24';
 		Text=_TXT_BOX.Text;
@@ -163,81 +162,9 @@ local function _repl()
 	};
 	_old:destroy();
 end;
-local MFC;function MCF()
-	print'Gen_3';
-	print(_TXT_BOX.Name:match'(.*)!|!(.*)');
-	print(_TXT_BOX.Text:match'(.-)!|!(.-)');
-	if(not _TXT_BOX.Text:match'(.*)!|!(.*)')then
-		_TXT_BTN.TextStrokeTransparency=.8;
-		_TXT_BTN.TextStrokeColor3=Color3.new(1,1,1);
-		_TXT_BTN.TextTransparency=1;
-		_TXT_BTN.Text='Incorrect Format.';
-		_SET_EVT(true);
-		for i=1,0,-.1 do
-			_TXT_BTN.TextTransparency=i;
-			game:service'RunService'.stepped:wait();
-		end;
-		wait(3);
-		_TXT_BTN.TextStrokeTransparency=.8;
-		_TXT_BTN.TextStrokeColor3=Color3.new(1,1,1);
-		_TXT_BTN.TextTransparency=1;
-		_TXT_BTN.Text='Submit\nCode';
-		for i=1,0,-.1 do
-			_TXT_BTN.TextTransparency=i;
-			game:service'RunService'.stepped:wait();
-		end;
-		_SET_EVT();
-		return;
-	end;
-	_SET_EVT(true);
-	_TXT_BTN.TextStrokeTransparency=.8;
-	_TXT_BTN.TextStrokeColor3=Color3.new(1,1,1);
-	_TXT_BTN.TextTransparency=1;
-	_TXT_BTN.Text='Code Submitted';
-	_repl();
-	local _CODE,_KEY=_TXT_BOX.Text:match'(.*)!|!(.*)';
-	for i=1,0,-.1 do
-		_TXT_BTN.TextTransparency=i;
-		game:service'RunService'.stepped:wait();
-	end;
-	wait(1);
-	for i=0,1,.1 do
-		_TXT_BTN.TextTransparency=i;
-		game:service'RunService'.stepped:wait();
-	end;
-	_TXT_BTN:destroy();
-	_TXT_BOX:tweenPosition(UDim2.new(.1,0,.1),'Out','Sine',1.5);
-	local _OT=_TXT_BOX.Text;
-	_TXT_BOX.Text='Processing: ['.._OT..']';
-	_TXT_BOX.BackgroundTransparency=.5;
-	local _FIN;
-	coroutine.wrap(function()
-		while(wait())and(_MG.Parent==PlayerGui)and(not _FIN)do
-			for i=1,3 do
-				if(_FIN)then break;end;
-				_TXT_BOX.Text='Processing: ['.._OT..']'..string.rep('.',i);
-				wait(.25);
-				if(_FIN)then break;end;
-			end;
-			if(_FIN)then break;end;
-		end;
-	end)();
-	coroutine.wrap(function()
-		while(game:service'RunService'.stepped:wait())and(_MG.Parent==PlayerGui)do
-			_TXT_BOX.BorderColor3=Color3.new(40/255+math.abs(math.sin(tick())),160/255+math.abs(math.sin(tick())),50/255+math.abs(math.sin(tick())))
-		end;
-	end)();
-	delay(5,function()
-		_FIN=true;
-		_TXT_BOX.Text='Processing: ['.._OT..']';
-		wait(.06);
-		_TXT_BOX.Text='Loaded.';
-		wait(1.5)
-		_FR:tweenPosition(UDim2.new(.25,0,-.4),'Out','Sine',1.5);
-		game:service'Debris':addItem(_MG,2);
-	end);
-end;
+local MFC;
 local ME,ML;
+local MCon;
 local _SET_EVT;_SET_EVT=function(_P)
 	ypcall(function()ME:disconnect();end);
 	ypcall(function()ML:disconnect();end);
@@ -251,6 +178,77 @@ local _SET_EVT;_SET_EVT=function(_P)
 		_TXT_BTN.TextStrokeTransparency=.9;
 		_TXT_BTN.TextStrokeColor3=Color3.new();
 	end);
-	MCon=_TXT_BTN.MouseButton1Click:connect(MFC);
+	MCon=_TXT_BTN.MouseButton1Click:connect(function()
+		if(not _TXT_BOX.Text:match'(.*)|(.*)')then
+			_TXT_BTN.TextStrokeTransparency=.8;
+			_TXT_BTN.TextStrokeColor3=Color3.new(1,1,1);
+			_TXT_BTN.TextTransparency=1;
+			_TXT_BTN.Text='Incorrect Format.';
+			_SET_EVT(true);
+			for i=1,0,-.1 do
+				_TXT_BTN.TextTransparency=i;
+				game:service'RunService'.stepped:wait();
+			end;
+			wait(3);
+			_TXT_BTN.TextStrokeTransparency=.8;
+			_TXT_BTN.TextStrokeColor3=Color3.new(1,1,1);
+			_TXT_BTN.TextTransparency=1;
+			_TXT_BTN.Text='Submit\nCode';
+			for i=1,0,-.1 do
+				_TXT_BTN.TextTransparency=i;
+				game:service'RunService'.stepped:wait();
+			end;
+			_SET_EVT();
+			return;
+		end;
+		_SET_EVT(true);
+		_TXT_BTN.TextStrokeTransparency=.8;
+		_TXT_BTN.TextStrokeColor3=Color3.new(1,1,1);
+		_TXT_BTN.TextTransparency=1;
+		_TXT_BTN.Text='Code Submitted';
+		_repl();
+		local _CODE,_KEY=_TXT_BOX.Text:match'(.*)|(.*)';
+		print(_CODE,_KEY);
+		for i=1,0,-.1 do
+			_TXT_BTN.TextTransparency=i;
+			game:service'RunService'.stepped:wait();
+		end;
+		wait(1);
+		for i=0,1,.1 do
+			_TXT_BTN.TextTransparency=i;
+			game:service'RunService'.stepped:wait();
+		end;
+		_TXT_BTN:destroy();
+		_TXT_BOX:tweenPosition(UDim2.new(.1,0,.1),'Out','Sine',1.5);
+		local _OT=_TXT_BOX.Text;
+		_TXT_BOX.Text='Processing: ['.._OT..']';
+		_TXT_BOX.BackgroundTransparency=.5;
+		local _FIN;
+		coroutine.wrap(function()
+			while(wait())and(_MG.Parent==PlayerGui)and(not _FIN)do
+				for i=1,3 do
+					if(_FIN)then break;end;
+					_TXT_BOX.Text='Processing: ['.._OT..']'..string.rep('.',i);
+					wait(.25);
+					if(_FIN)then break;end;
+				end;
+				if(_FIN)then break;end;
+			end;
+		end)();
+		coroutine.wrap(function()
+			while(game:service'RunService'.stepped:wait())and(_MG.Parent==PlayerGui)do
+				_TXT_BOX.BorderColor3=Color3.new(40/255+math.abs(math.sin(tick())),160/255+math.abs(math.sin(tick())),50/255+math.abs(math.sin(tick())))
+			end;
+		end)();
+		delay(5,function()
+			_FIN=true;
+			_TXT_BOX.Text='Processing: ['.._OT..']';
+			wait(.06);
+			_TXT_BOX.Text='Loaded.';
+			wait(1.5)
+			_FR:tweenPosition(UDim2.new(.25,0,-.4),'Out','Sine',1.5);
+			game:service'Debris':addItem(_MG,2);
+		end);
+	end);
 end;
 _SET_EVT();
