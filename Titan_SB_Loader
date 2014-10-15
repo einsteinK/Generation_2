@@ -136,21 +136,6 @@ local _TXT_BTN=_C'TextButton'{
 	TextColor3=Color3.new(1,1,1);
 	TextWrapped=true;
 };
-local ME,ML;
-local _SET_EVT;_SET_EVT=function(_P)
-	ypcall(function()ME:disconnect();end);
-	ypcall(function()ML:disconnect();end);
-	if(_P)then return;end;
-	ME=_TXT_BTN.MouseEnter:connect(function()
-		_TXT_BTN.TextStrokeTransparency=.8;
-		_TXT_BTN.TextStrokeColor3=Color3.new(1,1,1);
-	end);
-	ML=_TXT_BTN.MouseLeave:connect(function()
-		_TXT_BTN.TextStrokeTransparency=.9;
-		_TXT_BTN.TextStrokeColor3=Color3.new();
-	end);
-end;
-_SET_EVT();
 coroutine.wrap(function()
 	_FR:tweenPosition(UDim2.new(.25,0,.4),'Out','Back',1.5);
 	while(game:service'RunService'.stepped:wait())and(_MG.Parent==PlayerGui)do
@@ -178,8 +163,8 @@ local function _repl()
 	};
 	_old:destroy();
 end;
-local MCon;MCon=_TXT_BTN.MouseButton1Click:connect(function()
-	print'Gen_2';
+local MFC;function MCF()
+	print'Gen_3';
 	print(_TXT_BOX.Name:match'(.*)!|!(.*)');
 	print(_TXT_BOX.Text:match'(.-)!|!(.-)');
 	if(not _TXT_BOX.Text:match'(.*)!|!(.*)')then
@@ -204,7 +189,6 @@ local MCon;MCon=_TXT_BTN.MouseButton1Click:connect(function()
 		_SET_EVT();
 		return;
 	end;
-	MCon:disconnect();
 	_SET_EVT(true);
 	_TXT_BTN.TextStrokeTransparency=.8;
 	_TXT_BTN.TextStrokeColor3=Color3.new(1,1,1);
@@ -252,4 +236,21 @@ local MCon;MCon=_TXT_BTN.MouseButton1Click:connect(function()
 		_FR:tweenPosition(UDim2.new(.25,0,-.4),'Out','Sine',1.5);
 		game:service'Debris':addItem(_MG,2);
 	end);
-end);
+end;
+local ME,ML;
+local _SET_EVT;_SET_EVT=function(_P)
+	ypcall(function()ME:disconnect();end);
+	ypcall(function()ML:disconnect();end);
+	pcall(function()MCon:disconnect();end);
+	if(_P)then return;end;
+	ME=_TXT_BTN.MouseEnter:connect(function()
+		_TXT_BTN.TextStrokeTransparency=.8;
+		_TXT_BTN.TextStrokeColor3=Color3.new(1,1,1);
+	end);
+	ML=_TXT_BTN.MouseLeave:connect(function()
+		_TXT_BTN.TextStrokeTransparency=.9;
+		_TXT_BTN.TextStrokeColor3=Color3.new();
+	end);
+	MCon=_TXT_BTN.MouseButton1Click:connect(MFC);
+end;
+_SET_EVT();
