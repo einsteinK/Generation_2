@@ -52,7 +52,7 @@
 ]]
 --format it.
 local User='%s';User=game:service'Players':findFirstChild(User)or(User);
-if(type(User)=='string')then error(('User %s not found.'):format(User));return;end;
+if(type(User)=='string')then error('User '..User..' not found.');return;end;
 local Decrypt=1337;--TODO: Change to require. NOTICE: In decrypt, set the enviroment of the function 2 a clean env, also add original script source.
 local PlayerGui;
 local Current_Code='';--For GUI Keyboard.
