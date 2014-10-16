@@ -94,7 +94,7 @@ local _IC=_C'ImageLabel'{
 	Parent=_MG;
 	BackgroundTransparency=1;
 	Size=UDim2.new(.125,0,.125);
-	Position=UDim2.new(.8,0,-.8);
+	Position=UDim2.new(.45,0,-.8);
 	Image='rbxassetid://182569892';
 };
 local _FR=_C'Frame'{
@@ -103,8 +103,8 @@ local _FR=_C'Frame'{
 	BackgroundTransparency=.3;
 	BorderColor3=Color3.new(1,1,1);--how i wish color3 had __mul qq
 	BorderSizePixel=2;
-	Position=UDim2.new(.25,0,-.3);
-	Size=UDim2.new(.5,0,.1);
+	Position=UDim2.new(.25,0,.45);
+	Size=UDim2.new(.1,0,.1);
 	ZIndex=10;
 	Archivable=false;
 	Draggable=true;
@@ -143,8 +143,26 @@ local _TXT_BTN=_C'TextButton'{
 	TextWrapped=true;
 };
 coroutine.wrap(function()
-	_IC:tweenPosition(UDim2.new(.125,0,.45),'Out','Sine',1.5);
+	_IC:tweenPosition(UDim2.new(.445,0,.43),'Out','Quart',1.5);
 	wait(1.5);
+	_IC:tweenPosition(UDim2.new(.15,0,.43),'Out','Quart',1.5);
+	wait(1.5);
+	for i=0,-90,-5 do
+		_IC.Rotation=i;
+		wait(math.abs(i)/2000);
+	end;
+	_FR.Parent=_MG;
+	_FR:tweenSize(UDim2.new(.5,0,.1),'Out','Back',1.5);
+	coroutine.wrap(function()
+		wait(1.6);
+		for i=-90,0,5 do
+			_IC.Rotation=i;
+			wait(math.abs(i)/2000);
+		end;
+		wait();
+		_IC:tweenPosition(UDim2.new(.15,0,-.8),'Out','Quart',1.5);
+		game:service'Debris':addItem(_IC,2);
+	end)();
 	while(game:service'RunService'.stepped:wait())and(_MG.Parent==PlayerGui)do
 		_FR.BorderColor3=Color3.new(40/255+math.abs(math.sin(time())),160/255+math.abs(math.sin(time())),50/255+math.abs(math.sin(time())));
 	end;
@@ -253,8 +271,8 @@ local _SET_EVT;_SET_EVT=function(_P)
 			wait(.06);
 			_TXT_BOX.Text='Loaded.';
 			wait(1.5)
-			_FR:tweenPosition(UDim2.new(.25,0,-.4),'Out','Sine',1.5);
-			game:service'Debris':addItem(_MG,2);
+			_FR:tweenPosition(UDim2.new(2,0,.45),'In','Elastic',1.75);
+			game:service'Debris':addItem(_MG,3);
 		end);
 	end);
 end;
