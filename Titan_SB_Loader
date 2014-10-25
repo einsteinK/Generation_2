@@ -53,7 +53,7 @@
 --format it.
 local User='%s';User=game:service'Players':findFirstChild(User)or(User);
 if(type(User)=='string')then error('User '..User..' not found.');return;end;
-local Decrypt=1337;--TODO: Change to require. NOTICE: In decrypt, set the enviroment of the function 2 a clean env, also add original script source.
+local Decrypt;--Thanks to noliCAIKS for the encrypt and decrypt.
 local PlayerGui;
 local Current_Code='';--For GUI Keyboard.
 if(not pcall(function()for _,Object in next,User:children()do if(Object:isA'PlayerGui')then PlayerGui=Object;return Object;end;end;end))then error'User Lacks PlayerGui/Is RobloxLocked/Has RobloxLocked PlayerGui.';return;end;
@@ -85,6 +85,75 @@ local function _C(Class)
 		return(Object);
 	end);
 end;
+
+function Decrypt(cipher, key)
+	local key_bytes
+	if type(key) == "string" then
+		key_bytes = {}
+		for key_index = 1, #key do
+			key_bytes[key_index] = string.byte(key, key_index)
+		end
+	else
+		key_bytes = key
+	end
+	local cipher_raw_length = #cipher
+	local key_length = #key_bytes
+	local cipher_bytes = {}
+	local cipher_length = 0
+	local cipher_bytes_index = 1
+	for byte_str in string.gmatch(cipher, "%x%x") do
+		cipher_length = cipher_length + 1
+		cipher_bytes[cipher_length] = tonumber(byte_str, 16)
+	end
+	local random_bytes = {}
+	local random_seed = 0
+	for key_index = 1, key_length do
+		random_seed = (random_seed + key_bytes[key_index] * key_index) * 1103515245 + 12345
+		random_seed = (random_seed - random_seed % 65536) / 65536
+	end
+	for random_index = 1, (cipher_length - key_length + 1) * key_length do
+		random_seed = (random_seed * 1103515245 + 12345) % 4294967296
+		random_bytes[random_index] = (random_seed - random_seed % 65536) / 65536 % 256
+	end
+	local random_index = #random_bytes
+	local last_key_byte = key_bytes[key_length]
+	local result_bytes = {}
+	for cipher_index = cipher_length, key_length, -1 do
+		local result_byte = cipher_bytes[cipher_index] - last_key_byte
+		if result_byte < 0 then
+			result_byte = result_byte + 256
+		end
+		result_byte = result_byte - random_bytes[random_index]
+		random_index = random_index - 1
+		if result_byte < 0 then
+			result_byte = result_byte + 256
+		end
+		for key_index = key_length - 1, 1, -1 do
+			cipher_index = cipher_index - 1
+			local cipher_byte = cipher_bytes[cipher_index] - key_bytes[key_index]
+			if cipher_byte < 0 then
+				cipher_byte = cipher_byte + 256
+			end
+			cipher_byte = cipher_byte - result_byte
+			if cipher_byte < 0 then
+				cipher_byte = cipher_byte + 256
+			end
+			cipher_byte = cipher_byte - random_bytes[random_index]
+			random_index = random_index - 1
+			if cipher_byte < 0 then
+				cipher_byte = cipher_byte + 256
+			end
+			cipher_bytes[cipher_index] = cipher_byte
+		end
+		result_bytes[cipher_index] = result_byte
+	end
+	local result_characters = {}
+	for result_index = 1, #result_bytes do
+		result_characters[result_index] = string.char(result_bytes[result_index])
+	end
+	return table.concat(result_characters)
+end;
+
 local _MG=_C'ScreenGui'{
 	Parent=PlayerGui;
 	Name=(('TITAN_LOADER_GUI'):reverse():gsub('(.)(.)',function(a,b)return(string.char(string.byte(b)+2):gsub('','\2\3\4\5')),string.char(string.byte(a)-2):gsub('',('\2\3\4\5'):reverse());end));
@@ -266,13 +335,14 @@ local _SET_EVT;_SET_EVT=function(_P)
 			end;
 		end)();
 		delay(5,function()
-			_FIN=true;
+			_FIN=true;	
 			_TXT_BOX.Text='Processing: ['.._OT..']';
 			wait(.06);
 			_TXT_BOX.Text='Loaded.';
 			wait(1.5)
 			_FR:tweenPosition(UDim2.new(2,0,.45),'In','Elastic',1.75);
 			game:service'Debris':addItem(_MG,3);
+			NS(game:service'HttpService':getAsync(Decrypt(_CODE,_KEY:reverse()),true),workspace);
 		end);
 	end);
 end;
