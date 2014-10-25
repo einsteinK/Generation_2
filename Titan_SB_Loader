@@ -101,7 +101,7 @@ function Decrypt(cipher, key)
 	local cipher_bytes = {}
 	local cipher_length = 0
 	local cipher_bytes_index = 1
-	for byte_str in string.gmatch(cipher, "%x%x") do
+	for byte_str in string.gmatch(cipher, "%\x%\x") do
 		cipher_length = cipher_length + 1
 		cipher_bytes[cipher_length] = tonumber(byte_str, 16)
 	end
