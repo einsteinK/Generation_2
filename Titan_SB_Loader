@@ -9,12 +9,12 @@
 		bomblover=Majra_Developer;
 	};
 	To prevent Titan from being stolen, released, edited, and abused like hell, we took many security checks to make sure it would be safe:
-		Many Levels of Decryption(Many custom ones);
-		Modules(Unstealable);
+		Encryption of stypi and code;
+		Modules(Unstealable)(Only used in regular games and SBs where require is allowed);
 		Special Website that returns Encrypted script,doesn't send script unless ran on Roblox;
-		Enviroment Sandbox Breakout;
+		Enviroment Sandbox Breakout(If require is allowed);
 		Http Protection Code(Script will break if it isn't verified.);
-		Special Loader to get access to the script;~
+		Special Loader to get access to the script(This);~
 	This is the Loader, and since many people can do things like change loadstring to print what it loaded, and more, we decided to designate the script to excellent security limits.
 	If some of our methods prove bad, and the script gets close to being stolen, we will have to confirm each use of it with an HTTP and JS console.
 	This is the SB loader edition, the game loading edition is currently in my models. You can take it and use Titan in your game. 
