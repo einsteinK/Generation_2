@@ -51,7 +51,7 @@
 	~
 ]]
 --format it.
-local User='%s';User=game:service'Players':findFirstChild(User)or(User);
+local User='NAME_HERE';User=game:service'Players':findFirstChild(User)or(User);
 if(type(User)=='string')then error('User '..User..' not found.');return;end;
 local Decrypt;--Thanks to noliCAIKS for the encrypt and decrypt.
 local PlayerGui;
@@ -101,7 +101,7 @@ function Decrypt(cipher, key)
 	local cipher_bytes = {}
 	local cipher_length = 0
 	local cipher_bytes_index = 1
-	for byte_str in string.gmatch(cipher, string.char(37)..'x'..string.char(37)..'x') do
+	for byte_str in string.gmatch(cipher, '%x%x') do
 		cipher_length = cipher_length + 1
 		cipher_bytes[cipher_length] = tonumber(byte_str, 16)
 	end
