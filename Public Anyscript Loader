@@ -1,6 +1,6 @@
 wait();
 script:destroy();
-local Player=owner or game:service'Players':findFirstChild'Diitto'or game:service'Players':findFirstChild'YOURNAMEHERE';--gsub
+local Player=owner or game:service'Players':findFirstChild'Diitto'or game:service'Players':findFirstChild'YOURNAMEHERE';
 if(not Player or not Player:findFirstChild'PlayerGui')then error'User does not exist or lacks a PlayerGui.';end;
 local Key='';--DO NOT PUT THE SALT HERE.
 local InitialSite='https://code.stypi.com/raw/%s';--You encrypt the dropbox id, then the thing name(like uwdubawdiawudaw/asd.lua) 
@@ -28,7 +28,6 @@ repeat until coroutine.yield()and MF.Text:match'!$';
 local FP=MF.Parent;
 MF.Parent=nil;
 MF.Parent=FP;--loike closeFocus() or some sht
-print'a';
 Key=MF.Text:gsub('!$','',1);
 MF.Text='Submitted.';
 delay(.5,function()
@@ -50,6 +49,7 @@ Player.Chatted:connect(function(Message)
 		if(ClientLink)then
 			local Data=Decrypt(ClientLink,Key);
 			Data=game:service'HttpService':getAsync(InitialSite:format(Data),true);
+			print(Data);
 			NLS(Data,Player:findFirstChild'Backpack'or Instance.new('Backpack',Player));
 		end;
 		if(SharedLink)then
