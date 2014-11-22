@@ -1,5 +1,5 @@
 local Encrypt,Decrypt,HTTPAvailable,Site;
-Site='http://titansystems.NOTREADYHASTITAN/UploadDataSrc/%s';--pk, put the site with a PHP conversion encryption
+Site='http://LOLNOXEL.NOTREADYHASTITAN/UploadDataSrc.php';--pk, put the site with a PHP conversion encryption
 HTTPAvailable=function()
   return pcall(function()game:service'HttpService':getAsync('https://www.github.com/',true);end) and true or false,'HTTPService is disabled/overloaded.';
 end;
@@ -12,7 +12,7 @@ end;
 Decrypt=function(Hash,Salt)
   local DSite=Site:format'Decryption';
   Hash,Salt=tostring(Hash),tostring(Salt);
-  assert(HTTPAvailable);
+  assert(HTTPAvailable);--json pls
   return unpack{game:service'HttpService':postAsync(DSite,'hashcode='..game:service'HttpService':UrlEncode(Hash)..'&salt='..game:service'HttpService':UrlEncode(Salt))};
 end;
 return({Decryption=Decrypt;Encryption=Encrypt;});
