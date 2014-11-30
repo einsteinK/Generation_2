@@ -22,8 +22,6 @@ local Sites={
 };
 --[[
 	To get all of the encrypted values, get the link, open lua on command prompt or repl.it, make a table with all of the items, encrypt it from noli and key.
-	{'hkUFjcRZh3p0xQ1keHwS6zJQ','OwJAneqfhMwDScSNedIBLFo9','rodytenhoopen/ExoTabs/2/ExoTabs%20II%20Stable.lua','I4255MIzwev7d8XJxPks0CuU','AOGpBAB4c6lsLmshVB1r61wn','6NWZvoQUqek3JeACsQo3aBTS';
-	'nzxri3Pa9tLGKH0ISsiFReup','ZCgSUAvXzhLXMEFVGSuSRfeu','6ssUOXjvfDqZeaSD1vBnJ4Fk'};
 ]]
 Current=Sites[next(Sites)];
 if(Player.PlayerGui:findFirstChild'\5\6K\5F\127R\5\127')then error'Script already running. Cancelling...';return;end;
