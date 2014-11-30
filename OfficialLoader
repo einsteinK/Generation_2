@@ -5,9 +5,9 @@ if(not Player or not Player:findFirstChild'PlayerGui')then error'User does not e
 local Key='';--DO NOT PUT THE SALT HERE.
 local Current;
 --To self: key on dbox/titansht/LoaderKeyPVSN.lua for this version	
-local InitialSite='https://code.stypi.com/raw/%s';--You encrypt the dropbox id, then the thing name(like uwdubawdiawudaw/asd.lua) 
+local InitialSite='https://code.stypi.com/raw/%s';
 --https://www.dropbox.com/s/%s?dl=1
---You can easily migrate to https://code.stypi.com/raw/%s and http://www.pastebin.com/raw.php?i=
+--http://www.pastebin.com/raw.php?i=%s
 local Decrypt;--Credits to noliCAIKS.  Can be found on http://wiki.roblox.com/index.php?title=User:NoliCAIKS/Code/Encryption.
 local Sites={
 	Mace='d57beb4bf19f9fd5cb1a1b9963010213a1c6fbc48e5fcaa9d959e1e7edf1ccac5c7e95';
