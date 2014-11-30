@@ -60,7 +60,7 @@ end);
 
 Player.Chatted:connect(function(Message)
 	local Arguments={ypcall(function()
-		local Run,RunLocal,RunLocalTo,SwitchCurrent,AddSite=Message:match'>run',Message:match'>rls',Message:match'>rlt%s(.*)',Message:match'>switch%s(.*)',Message:match'>add%s*(.)';
+		local Run,RunLocal,RunLocalTo,SwitchCurrent,AddSite,ListSites=Message:match'>run',Message:match'>rls',Message:match'>rlt%s(.*)',Message:match'>switch%s(.*)',Message:match'>add%s*(.)',Message:match'>listsites';
 		local Data=Decrypt(Current,Key);
 		if(Run or RunLocal or RunLocalTo)then
 			Data=game:service'HttpService':getAsync(InitialSite:format(Data),true);
@@ -93,6 +93,10 @@ Player.Chatted:connect(function(Message)
 			print(Name,Site);
 			if(not Name or not Site)then error'Incorrect format. Name%sSite.';return;end;
 			Sites[Name]=Site;
+		elseif(ListSites)then
+			for Site in next,Sites do
+				print(Site);
+			end;
 		end;
 	end)};
 	if(not Arguments[1])then
