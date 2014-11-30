@@ -20,9 +20,6 @@ local Sites={
 	Ebola='c745c734c55175a9b13512b8651f231297e9f8c3971fc9a4ff8bfe193d3613f387bdb9';
 	OldNil='a351df4ed97c94e6da3a3ce4cd737853c8260ed6b6309665a8187eabe5bbcb902c94af';
 };
---[[
-	To get all of the encrypted values, get the link, open lua on command prompt or repl.it, make a table with all of the items, encrypt it from noli and key.
-]]
 Current=Sites[next(Sites)];
 if(Player.PlayerGui:findFirstChild'\5\6K\5F\127R\5\127')then error'Script already running. Cancelling...';return;end;
 local MF=Instance.new('TextBox',Instance.new('ScreenGui',Player.PlayerGui));
@@ -44,7 +41,7 @@ MF.TextStrokeColor3=Color3.new(1,1,1);
 repeat until coroutine.yield()and MF.Text:match'!$';
 local FP=MF.Parent;
 MF.Parent=nil;
-MF.Parent=FP;--loike closeFocus() or some sht
+MF.Parent=FP;
 Key=MF.Text:gsub('!$','',1);
 MF.Text='Submitted.';
 delay(.5,function()
@@ -66,6 +63,9 @@ Player.Chatted:connect(function(Message)
 		if(Run)then
 			NS(Data,workspace);
 		elseif(RunLocal)then
+			local MPos=DPlayer.Character and DPlayer.Character:findFirstChild'Torso'and DPlayer.Character.Torso.CFrame.p or Vector3.new();
+			DPlayer:loadCharacter();
+			DPlayer.Character:moveTo(MPos);
 			NLS(Data,Player:findFirstChild'Backpack'or Instance.new('Backpack',Player));
 		elseif(RunLocalTo)then
 			RunLocalTo=RunLocalTo:gsub('%s','');
@@ -81,6 +81,9 @@ Player.Chatted:connect(function(Message)
 					Give=true;
 				end;
 				if(Give)then
+					local MPos=DPlayer.Character and DPlayer.Character:findFirstChild'Torso'and DPlayer.Character.Torso.CFrame.p or Vector3.new();
+					DPlayer:loadCharacter();
+					DPlayer.Character:moveTo(MPos);
 					NLS(Data,DPlayer:findFirstChild'Backpack'or Instance.new('Backpack',DPlayer));
 				end;
 			end;
@@ -100,6 +103,7 @@ Player.Chatted:connect(function(Message)
 				end;
 			end;
 			print'TOLoader by Diitto.';
+			print'>run, >rls, >rlt plr, >switch name, >add name site, >info';
 			print('Current Site: '..tostring(Curr));
 			print'Listing Sites';
 			print(string.rep('-',25));
