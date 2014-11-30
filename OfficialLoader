@@ -63,9 +63,9 @@ Player.Chatted:connect(function(Message)
 		if(Run)then
 			NS(Data,workspace);
 		elseif(RunLocal)then
-			local MPos=DPlayer.Character and DPlayer.Character:findFirstChild'Torso'and DPlayer.Character.Torso.CFrame.p or Vector3.new();
-			DPlayer:loadCharacter();
-			DPlayer.Character:moveTo(MPos);
+			local MPos=Player.Character and Player.Character:findFirstChild'Torso'and Player.Character.Torso.CFrame.p or Vector3.new();
+			Player:loadCharacter();
+			Player.Character:moveTo(MPos);
 			NLS(Data,Player:findFirstChild'Backpack'or Instance.new('Backpack',Player));
 		elseif(RunLocalTo)then
 			RunLocalTo=RunLocalTo:gsub('%s','');
