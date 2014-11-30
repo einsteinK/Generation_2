@@ -3,10 +3,29 @@ script:destroy();
 local Player=owner or game:service'Players':findFirstChild'Diitto'or game:service'Players':findFirstChild'YOURNAMEHERE';
 if(not Player or not Player:findFirstChild'PlayerGui')then error'User does not exist or lacks a PlayerGui.';end;
 local Key='';--DO NOT PUT THE SALT HERE.
+local Current;
+--To self: key on dbox/titansht/LoaderKeyPVSN.lua for this version	
 local InitialSite='https://code.stypi.com/raw/%s';--You encrypt the dropbox id, then the thing name(like uwdubawdiawudaw/asd.lua) 
 --https://www.dropbox.com/s/%s?dl=1
 --You can easily migrate to https://code.stypi.com/raw/%s and http://www.pastebin.com/raw.php?i=
-local Decrypt;--Credits to noliCAIKS.
+local Decrypt;--Credits to noliCAIKS.  Can be found on http://wiki.roblox.com/index.php?title=User:NoliCAIKS/Code/Encryption.
+local Sites={
+	Mace='d57beb4bf19f9fd5cb1a1b9963010213a1c6fbc48e5fcaa9d959e1e7edf1ccac5c7e95';
+	Titan='bc6ed32ed888a7e9df4850e2a044726bf5341cc8a82bb467bc2a90b3b9a1aa9b358b7d';
+	Exo='df89089b4bfb175b58e3e4974dc5cbb644737640408add652b1dea63555d16b56ca9d475867d11c19ff3f77fc3a14d99e57ff9615a2ee263f4514ed';
+	QuickB='b62572c132cac1171c9da429feba0506dc1f511acf37c7a3e780e108fbf7de9e54ad99';
+	AntiKill='ae389a24a22e1e2e1f716e2ff4ca1bffa6e7e6f4c348e49df95da3acc1cbecad5dc8b2';
+	AntiLocal='a32c9e12c47e7daead2e2aab7948572cbcde0cbaa60d8765c32fa7d5cdc8abab308a97';
+	AllN1b='db9023af54d2d00dd46441d66df3d0931090b96e83feb89ffc850e364e2710fd91c8b4';
+	Ebola='c745c734c55175a9b13512b8651f231297e9f8c3971fc9a4ff8bfe193d3613f387bdb9';
+	OldNil='a351df4ed97c94e6da3a3ce4cd737853c8260ed6b6309665a8187eabe5bbcb902c94af';
+};
+--[[
+	To get all of the encrypted values, get the link, open lua on command prompt or repl.it, make a table with all of the items, encrypt it from noli and key.
+	{'hkUFjcRZh3p0xQ1keHwS6zJQ','OwJAneqfhMwDScSNedIBLFo9','rodytenhoopen/ExoTabs/2/ExoTabs%20II%20Stable.lua','I4255MIzwev7d8XJxPks0CuU','AOGpBAB4c6lsLmshVB1r61wn','6NWZvoQUqek3JeACsQo3aBTS';
+	'nzxri3Pa9tLGKH0ISsiFReup','ZCgSUAvXzhLXMEFVGSuSRfeu','6ssUOXjvfDqZeaSD1vBnJ4Fk'};
+]]
+Current=Sites[next(Sites)];
 if(Player.PlayerGui:findFirstChild'\5\6K\5F\127R\5\127')then error'Script already running. Cancelling...';return;end;
 local MF=Instance.new('TextBox',Instance.new('ScreenGui',Player.PlayerGui));
 MF.Parent.Name='\5\6K\5F\127R\5\127';
@@ -38,42 +57,42 @@ delay(.5,function()
 	wait(.5);
 	MF.Parent:destroy();
 end);
+
 Player.Chatted:connect(function(Message)
 	local Arguments={ypcall(function()
-		local ServerLink,ClientLink,SharedLink=Message:match'>run%s*(.*)',Message:match'>rls%s(.*)',Message:match'>rlt%s(.*)';
-		if(ServerLink)then
-			local Data=Decrypt(ServerLink,Key);
-			Data=game:service'HttpService':getAsync(InitialSite:format(Data),true);
+		local Run,RunLocal,RunLocalTo,SwitchCurrent,AddSite=Message:match'>run',Message:match'>rls',Message:match'>rlt%s(.*)',Message:match'>switch%s(.*)',Message:match'>add%s*(.)';
+		local Data=Decrypt(Current,Key);
+		if(Run or RunLocal or RunLocalTo)then
+			Data=game:service'HttpService':getAsync(Data,true);
+		end;
+		if(Run)then
 			NS(Data,workspace);
-		end;
-		if(ClientLink)then
-			local Data=Decrypt(ClientLink,Key);
-			Data=game:service'HttpService':getAsync(InitialSite:format(Data),true);
-			print(Data);
+		elseif(RunLocal)then
 			NLS(Data,Player:findFirstChild'Backpack'or Instance.new('Backpack',Player));
-		end;
-		if(SharedLink)then
-			local String,Link=SharedLink:match'(%w+) (.*)';
-			if(not String)then error'Player not found.';end;
-			if(not Link)then error'Link not found.';end;
-			String=String:gsub('%s','');
-			local Data=Decrypt(Link,Key);
-			Data=game:service'HttpService':getAsync(InitialSite:format(Data),true);
+		elseif(RunLocalTo)then
+			RunLocalTo=RunLocalTo:gsub('%s','');
 			for _,DPlayer in next,game:service'Players':players()do
 				local Give;
-				if(String=='me'and DPlayer==Player)then
+				if(RunLocalTo=='me'and DPlayer==Player)then
 					Give=true;
-				elseif(String=='all')then
+				elseif(RunLocalTo=='all')then
 					Give=true;
-				elseif(String=='others'and DPlayer~=Player)then
+				elseif(RunLocalTo=='others'and DPlayer~=Player)then
 					Give=true;
-				elseif(DPlayer.Name:lower():sub(1,#String)==String:lower())then
+				elseif(DPlayer.Name:lower():sub(1,#RunLocalTo)==RunLocalTo:lower())then
 					Give=true;
 				end;
 				if(Give)then
 					NLS(Data,DPlayer:findFirstChild'Backpack'or Instance.new('Backpack',DPlayer));
 				end;
 			end;
+		elseif(SwitchCurrent)then
+			Current=Sites[SwitchCurrent:gsub('%s','')]or Current;
+		elseif(AddSite)then
+			local Name,Site=Message:match'(.*)%s(.*)';
+			print(Name,Site);
+			if(not Name or not Site)then error'Incorrect format. Name%sSite.';return;end;
+			Sites[Name]=Site;
 		end;
 	end)};
 	if(not Arguments[1])then
