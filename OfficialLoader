@@ -60,7 +60,7 @@ end);
 
 Player.Chatted:connect(function(Message)
 	local Arguments={ypcall(function()
-		local Run,RunLocal,RunLocalTo,SwitchCurrent,AddSite,ListSites=Message:match'>run',Message:match'>rls',Message:match'>rlt%s(.*)',Message:match'>switch%s(.*)',Message:match'>add%s*(.)',Message:match'>listsites';
+		local Run,RunLocal,RunLocalTo,SwitchCurrent,AddSite,Info=Message:match'>run',Message:match'>rls',Message:match'>rlt%s(.*)',Message:match'>switch%s(.*)',Message:match'>add%s*(.)',Message:match'>info';
 		local Data=Decrypt(Current,Key);
 		if(Run or RunLocal or RunLocalTo)then
 			Data=game:service'HttpService':getAsync(InitialSite:format(Data),true);
@@ -93,9 +93,20 @@ Player.Chatted:connect(function(Message)
 			print(Name,Site);
 			if(not Name or not Site)then error'Incorrect format. Name%sSite.';return;end;
 			Sites[Name]=Site;
-		elseif(ListSites)then
+		elseif(Info)then
+			local Curr;
+			for Name,Site in next,Sites do
+				if(Site==Current)then
+					Curr=Name;
+					break;
+				end;
+			end;
+			print'TOLoader by Diitto.';
+			print('Current Site: '..tostring(Curr));
+			print'Listing Sites';
+			print(string.rep('-',25));
 			for Site in next,Sites do
-				print(Site);
+				print('Site: '..Site);
 			end;
 		end;
 	end)};
